@@ -14,14 +14,14 @@ export default {
     methods:{
         getDetail(){
             this.fullscreenLoading=true;
-            ask.godSetting.detail({
+            ask.bookSetting.detail({
                 id:this.id
             },res=>{
                 if(res.code==0){
                     this.form.name=res.data.name;
                     this.form.brief=res.data.brief;
                     this.form.image=res.data.image;
-                    this.form.content=res.data.content;
+                    this.form.info=res.data.info;
 
                 }else{
                     this.$toast(res.msg);
@@ -30,14 +30,14 @@ export default {
             });
         },
         submit(){
-            this.$refs['godForm'].validate((valid) => {
+            this.$refs['bookForm'].validate((valid) => {
                 if (valid&&this.isTestObjError==false) {
                     this.submitBtnDisable=true;
                     this.fullscreenLoading=true;
-                    ask.godSetting.update(this.form,res=>{
+                    ask.bookSetting.update(this.form,res=>{
                         if(res.code==0){
                             this.$router.push({
-                                path:"/god/list",
+                                path:"/book/list",
                             });
                         }else{
                             this.$toast(res.msg);

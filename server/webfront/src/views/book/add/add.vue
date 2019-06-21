@@ -1,12 +1,12 @@
 <template>
-    <div class="god-add" v-loading.lock="fullscreenLoading">
+    <div class="book-add" v-loading.lock="fullscreenLoading">
         <div>
-            <el-form ref="godForm" :model="form" :rules="rules" label-width="140px" class="m-form" >
-                <el-form-item label="名称" style="width:400px" prop="name">
-                    <el-input v-model="form.name"  placeholder="请输入标题" ></el-input>
+            <el-form ref="bookForm" :model="form" :rules="rules" label-width="140px" class="m-form" >
+                <el-form-item label="名字" style="width:400px" prop="name">
+                    <el-input v-model="form.name"  placeholder="请输入名字" ></el-input>
                 </el-form-item>
-                <el-form-item label="简介" style="width:600px" prop="brief">
-                    <el-input v-model="form.brief"  placeholder="请输入大神简介" type="textarea" rows="6"></el-input>
+                <el-form-item label="简介" style="width:600px" prop="breif">
+                    <el-input v-model="form.brief"  placeholder="请输入简介" type="textarea" rows="6"></el-input>
                 </el-form-item>
                 <el-form-item label="图片" style="width:400px" prop="image">
                     <el-upload
@@ -19,7 +19,7 @@
                         <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                     </el-upload>
                 </el-form-item>
-                <el-form-item label="介绍" style="width:1200px" prop="content">
+                <el-form-item label="详细介绍" style="width:1200px" prop="info">
                     <div >
                         <mark-down  ref="md" :theme="theme" :initialValue="initialValue" :placeholderValue="placeholderValue"/>
                     </div>

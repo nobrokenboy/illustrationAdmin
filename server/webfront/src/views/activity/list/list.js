@@ -1,4 +1,4 @@
-import userSetting from "../../../interface/modules/userSetting";
+// import activitySetting from "../../../interface/modules/activitySetting";
 
 export default {
     name:"list",
@@ -9,8 +9,7 @@ export default {
             currentPage3: 5,
             fullscreenLoading:true,
             requestParams:{
-               userName:"",
-               phone:""
+                title:"",
             },
             paginationObj:{
                 total:0,
@@ -19,11 +18,11 @@ export default {
 
     },
     mounted(){
-        this.getUserList();
+        this.getActivityList();
     },
     methods:{
-        getUserList(){
-            ask.userSetting.list(this.requestParams,(res)=>{
+        getActivityList(){
+            ask.activitySetting.list(this.requestParams,(res)=>{
                 console.log(res);
                 if(res.code==0){
                     this.tableData=res.data;
@@ -37,17 +36,17 @@ export default {
             });
         },
         deleteOperation(id){
-            this.$confirm('是否确定删除该用户?', '提示', {
+            this.$confirm('是否确定删除该活动?', '提示', {
                 confirmButtonText: '确定',
                 cancelButtonText: '取消',
                 type: 'warning'
             }).then(() => {
                 //调用接口删除
-                ask.userSetting.delete({
+                ask.activitySetting.delete({
                     id:id
                 },res=>{
                     if(res.code==0){
-                        this.getUserList();
+                        this.getActivityList();
                     }else{
                         this.$toast(res.msg);
                     }
@@ -58,18 +57,18 @@ export default {
         },
         edit(id){
             this.$router.push({
-                path:"/user/edit",
+                path:"/activity/edit",
                 query:{
                     id:id
                 }
             });
         },
         handleCurrentChange(val) {
-            this.getUserList();
+            this.getActivityList();
         },
         addOperation(){
             this.$router.push({
-                path:"/user/add",
+                path:"/activity/add",
             });
         }
     }

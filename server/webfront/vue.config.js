@@ -20,6 +20,7 @@ module.exports={
     // assetsDir:"./public",//静态资源目录(相对于outputDir)
     assetsDir:"./",//静态资源目录(相对于outputDir)
     // pages:util.getPages(),
+    crossorigin:"anonymous",
     pages:{
         admin: {
             entry: 'src/main.js',
@@ -43,12 +44,17 @@ module.exports={
     productionSourceMap:false,
     devServer: {
         port:8202,
-        proxy: {
+        proxy: {//https://dribbble.com/shots/6639386-Two-Dots-Treasure-Hunt-RPG-Overworld-Ice-Zone?utm_source=gold_browser_extension
             '/illustration':{//设置java 接口跨域代理
                 target:'http://10.70.7.217:3000',
                 ws:true,
                 changeOrigin:true
-            }
+            },
+            // '/upload':{
+            //     target:'http://10.70.7.217:3000',
+            //     ws:true,
+            //     changeOrigin:true
+            // },
         },
         before(app){
             console.log('哈哈哈');

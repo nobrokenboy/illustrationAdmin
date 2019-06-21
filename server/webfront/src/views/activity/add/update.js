@@ -14,15 +14,15 @@ export default {
     methods:{
         getDetail(){
             this.fullscreenLoading=true;
-            ask.userSetting.detail({
+            ask.activitySetting.detail({
                 id:this.id
             },res=>{
                 if(res.code==0){
-                    this.form.userName=res.data.userName;
-                    this.form.phone=res.data.phone;
-                    this.form.password=res.data.password;
-                    this.form.userBrief=res.data.userBrief;
-                    this.form.portrait=res.data.portrait;
+                    this.form.title=res.data.title;
+                    this.form.activityBrief=res.data.activityBrief;
+                    this.form.activityImageId=res.data.activityImageId;
+                    this.form.activityImage=res.data.activityImage;
+                    this.initialValue=this.form.activityContent=res.data.activityContent;
 
                 }else{
                     this.$toast(res.msg);
@@ -31,14 +31,15 @@ export default {
             });
         },
         submit(){
-            this.$refs['userForm'].validate((valid) => {
+            this.$refs['activityForm'].validate((valid) => {
+                this.$refs.md.handleSave();
                 if (valid&&this.isTestObjError==false) {
                     this.submitBtnDisable=true;
                     this.fullscreenLoading=true;
-                    ask.userSetting.update(this.form,res=>{
+                    ask.activitySetting.update(this.form,res=>{
                         if(res.code==0){
                             this.$router.push({
-                                path:"/user/list",
+                                path:"/activity/list",
                             });
                         }else{
                             this.$toast(res.msg);

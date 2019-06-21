@@ -17,16 +17,3 @@ var db=mongoose.connect('mongodb://localhost/illustration',options,(err,client)=
     }
 });
 
-
-module.exports={
-    getNextSequenceValue(sequenceName,collectionName){//
-        var sequenceDocument = db[collectionName].findAndModify(
-            {
-                query:{_id: sequenceName},
-                update: {$inc:{sequence_value:1}},
-                "new":true
-            });
-        return sequenceDocument.sequence_value;
-
-    }
-};

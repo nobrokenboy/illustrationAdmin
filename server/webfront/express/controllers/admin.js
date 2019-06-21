@@ -17,14 +17,19 @@ router.post('/login',function(req,res){
     models.admin.findOne(obj,function(err,result){
         console.log(err);
         console.log(result);
-        if(err) return handleError(err);
+        if(err) {
+            console.log('有错误呢');
+            return handleError(err)
+        }
 
         if(result==null){
             res.json(config.setResponse(config.setCode.Error_Code,null,'账户或者密码不对',null));
         }else{
             //设置全局的session并写入前端
-            console.log(req.session);
+            console.log('登录成功');
+            console.log(result.id);
             req.session.username=req.body.userName;
+            req.session.sid=result.id;
             res.json(config.setResponse(config.setCode.Success_Code,result,'登录成功',null));
         }
     })

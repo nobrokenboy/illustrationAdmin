@@ -14,8 +14,8 @@ import {
     Input,
     Select,
     Option,
-    Upload
-
+    Upload,
+    Dialog
 } from 'element-ui';
 
 //全部配置按钮等组件的大小
@@ -36,6 +36,7 @@ Vue.use(Input);
 Vue.use(Select);
 Vue.use(Option);
 Vue.use(Upload);
+Vue.use(Dialog);
 Vue.prototype.$loading = Loading.service;
 Vue.prototype.$msgbox = MessageBox;
 Vue.prototype.$confirm = MessageBox.confirm;

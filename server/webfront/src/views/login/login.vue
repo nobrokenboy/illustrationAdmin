@@ -109,6 +109,7 @@
                 setTimeout(this.textEffect,180);
             },
             loginOperation(){
+                console.log('点击了登录');
                 //登录时先清空后台的提示语
                 this.endVerifyMsgText='';
                 this.isLoading=true;

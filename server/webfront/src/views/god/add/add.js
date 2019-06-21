@@ -7,16 +7,19 @@ export default {
 
         }
     },
+    mounted(){
+
+    },
     methods:{
         submit(){
-            this.$refs['alarmForm'].validate((valid) => {
-                if (valid) {
+            this.$refs['godForm'].validate((valid) => {
+                if (valid&&this.isTestObjError==false) {
                     this.submitBtnDisable=true;
                     this.fullscreenLoading=true;
-                    ask.typeSetting.add(this.form,res=>{
+                    ask.godSetting.add(this.form,res=>{
                         if(res.code==0){
                             this.$router.push({
-                                path:"/alarm/list",
+                                path:"/god/list",
                             });
                         }else{
                             this.$toast(res.msg);
@@ -30,6 +33,6 @@ export default {
                 }
             });
 
-        }
+        },
     }
 }

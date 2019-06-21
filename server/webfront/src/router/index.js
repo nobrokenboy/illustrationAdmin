@@ -20,10 +20,12 @@ import activityEdit from 'views/activity/add/update.js';
 import godList from 'views/god/list/list.vue';
 import godAdd from 'views/god/add/add.js';
 import godEdit from 'views/god/add/update.js';
-
-
-/*---------------------书籍列表-------------------*/
-
+/*---------------------绘本列表-------------------*/
+import bookList from 'views/book/list/list.vue';
+import bookAdd from 'views/book/add/add.js';
+import bookEdit from 'views/book/add/update.js';
+/*---------------------插画圈记录列表-------------------*/
+import recordList from 'views/record/list/list.vue';
 
 
 
@@ -147,6 +149,37 @@ const routes=[
                     regexPath:"/god/list",
                 }
             },
+            {
+                path:"/book/list",
+                component:bookList,
+                name:"绘本列表",
+                icon:require("../assets/imgs/btn-list.png"),
+                isMenu:true
+            },
+            {
+                path:"/book/add",
+                component:bookAdd,
+                name:"添加绘本",
+                icon:require("../assets/imgs/btn-add.png"),
+                meta:{
+                    regexPath:"/book/list",//用于不在菜单时的路由激活状态匹配
+                }
+            },
+            {
+                path:"/book/edit",
+                component:bookEdit,
+                name:"编辑绘本",
+                meta:{
+                    regexPath:"/book/list",
+                }
+            },
+            {
+                path:"/record/list",
+                component:recordList,
+                name:"记录列表",
+                icon:require("../assets/imgs/btn-list.png"),
+                isMenu:true
+            }
 
         ]
     },

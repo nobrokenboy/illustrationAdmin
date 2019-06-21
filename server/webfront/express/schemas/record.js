@@ -1,16 +1,21 @@
 var mongoose=require('mongoose');
 //创建数据结构
-var adminSchema=new mongoose.Schema({
+var recordSchema=new mongoose.Schema({
     id:{
         type:Number
     },
-    userName:{
+    username:{
         type:String,
         required:true
     },
-    password:{
-        type:String,
-        required:true
+    content:{
+        type:String
+    },
+    location:{
+        type:String
+    },
+    image:{
+        type:Array
     },
     createTime: {
         type: Date,
@@ -20,7 +25,8 @@ var adminSchema=new mongoose.Schema({
         type: Date,
         default: Date.now
     }
-},{ timestamps:{ createdAt:'createTime', updatedAt: 'updateTime' }});
 
-module.exports=adminSchema;
+}, { timestamps:{ createdAt:'createTime', updatedAt: 'updateTime' }});
+
+module.exports=recordSchema;
 

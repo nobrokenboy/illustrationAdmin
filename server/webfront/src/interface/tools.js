@@ -12,15 +12,21 @@ axios.defaults.headers.get['Content-Type'] = 'application/x-www-form-urlencoded'
 //设置拦截器拦截登录失效
 var CancelToken = axios.CancelToken;
 var source = CancelToken.source();
-axios.interceptors.request.use(
-    config => {
-        config.cancelToken = source.token; // 全局添加cancelToken
-        return config;
-    },
-    err => {
-        return Promise.reject(err);
-    }
-);
+
+//为什么设置这个登录失效马上就会被拦截呢
+// axios.interceptors.request.use(
+//     config => {
+//         console.log('2');
+//         console.log(config);
+//         config.cancelToken = source.token; // 全局添加cancelToken
+//         return config;
+//     },
+//     err => {
+//         console.log('1');
+//         console.log(err);
+//         return Promise.reject(err);
+//     }
+// );
 axios.interceptors.response.use(function (response) {
     console.log('拦截');
     console.log(response);
@@ -29,6 +35,7 @@ axios.interceptors.response.use(function (response) {
         router.push({
            path:"/login"
         });
+
     }
     return response;
 }, function (error) {
@@ -73,7 +80,14 @@ export const post=(url,data,callback,config={})=>{
         })
         .catch(error=>{
             console.log(error)
+
             //提示错误
+            if (axios.isCancel(error)) {
+                console.log('Request canceled', error.message);
+            } else {
+
+            }
+
         });
 };
 

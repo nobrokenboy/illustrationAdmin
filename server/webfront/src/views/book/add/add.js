@@ -12,16 +12,14 @@ export default {
     },
     methods:{
         submit(){
-            this.$refs['activityForm'].validate((valid) => {
-                this.$refs.md.handleSave();
-                // return;
+            this.$refs['bookForm'].validate((valid) => {
                 if (valid&&this.isTestObjError==false) {
                     this.submitBtnDisable=true;
                     this.fullscreenLoading=true;
-                    ask.activitySetting.add(this.form,res=>{
+                    ask.bookSetting.add(this.form,res=>{
                         if(res.code==0){
                             this.$router.push({
-                                path:"/activity/list",
+                                path:"/book/list",
                             });
                         }else{
                             this.$toast(res.msg);

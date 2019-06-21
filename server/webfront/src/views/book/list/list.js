@@ -1,4 +1,3 @@
-
 export default {
     name:"list",
     data(){
@@ -17,11 +16,11 @@ export default {
 
     },
     mounted(){
-        this.getGodList();
+        this.getBookList();
     },
     methods:{
-        getGodList(){
-            ask.godSetting.list(this.requestParams,(res)=>{
+        getBookList(){
+            ask.bookSetting.list(this.requestParams,(res)=>{
                 console.log(res);
                 if(res.code==0){
                     this.tableData=res.data;
@@ -35,17 +34,17 @@ export default {
             });
         },
         deleteOperation(id){
-            this.$confirm('是否确定删除该插画师?', '提示', {
+            this.$confirm('是否确定删除该绘本?', '提示', {
                 confirmButtonText: '确定',
                 cancelButtonText: '取消',
                 type: 'warning'
             }).then(() => {
                 //调用接口删除
-                ask.godSetting.delete({
+                ask.bookSetting.delete({
                     id:id
                 },res=>{
                     if(res.code==0){
-                        this.getGodList();
+                        this.getBookList();
                     }else{
                         this.$toast(res.msg);
                     }
@@ -56,18 +55,18 @@ export default {
         },
         edit(id){
             this.$router.push({
-                path:"/god/edit",
+                path:"/book/edit",
                 query:{
                     id:id
                 }
             });
         },
         handleCurrentChange(val) {
-            this.getGodList();
+            this.getBookList();
         },
         addOperation(){
             this.$router.push({
-                path:"/god/add",
+                path:"/book/add",
             });
         }
     }

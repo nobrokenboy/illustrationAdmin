@@ -1,27 +1,23 @@
 var mongoose=require('mongoose');
 //创建数据结构
-var userSchema=new mongoose.Schema({
+var activitySchema=new mongoose.Schema({
     id:{
         type:Number
     },
-    userName:{//用户名
+    title:{//活动标题
         type:String,
         required:true
     },
-    phone:{
-        type:String,
-        required:true
-    },
-    password:{
+    activityBrief:{
         type:String
     },
-    code:{//验证码
+    activityImage:{
         type:String
     },
-    userBrief:{//用户简介
-        type:String
+    activityImageId:{
+        type:Number
     },
-    portrait:{//用户头像
+    activityContent:{
         type:String
     },
     createTime: {
@@ -33,8 +29,7 @@ var userSchema=new mongoose.Schema({
         default: Date.now
     }
 
+}, { timestamps:{ createdAt:'createTime', updatedAt: 'updateTime' }});
 
-},{ timestamps:{ createdAt:'createTime', updatedAt: 'updateTime' }});
-
-module.exports=userSchema;
+module.exports=activitySchema;
 
