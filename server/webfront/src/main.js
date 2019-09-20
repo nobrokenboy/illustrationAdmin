@@ -32,22 +32,22 @@ window.ask=ask;
 
 
 //路由全局钩子
-router.beforeEach((to,from,next)=>{
-    if(to.path=='/login'){
-        window.localStorage.removeItem('illustrationUser');
-    }
-    //获取用户session信息
-    let user=JSON.parse(window.localStorage.getItem('illustrationUser'));
-    NProgress.start();
+// router.beforeEach((to,from,next)=>{
+//     if(to.path=='/login'){
+//         window.localStorage.removeItem('illustrationUser');
+//     }
+//     //获取用户session信息
+//     let user=JSON.parse(window.localStorage.getItem('illustrationUser'));
+//     NProgress.start();
 
-    if(!user&&to.path!='/login'){
-        next({
-            path:"/login"
-        });
-    }else{
-        next();
-    }
-});
+//     if(!user&&to.path!='/login'){
+//         next({
+//             path:"/login"
+//         });
+//     }else{
+//         next();
+//     }
+// });
 
 router.afterEach(() => {
     // 在即将进入新的页面组件前，关闭掉进度条

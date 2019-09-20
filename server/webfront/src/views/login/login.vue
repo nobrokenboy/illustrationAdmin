@@ -126,7 +126,10 @@
                     return;
                 }
 
-
+                 this.$router.push({
+                            path:"/user/list"
+                        });
+                return;
                 //接口
                 ask.user.login(this.loginParams,res=>{
                     console.log(res.data);

@@ -26,11 +26,18 @@ import bookAdd from 'views/book/add/add.js';
 import bookEdit from 'views/book/add/update.js';
 /*---------------------插画圈记录列表-------------------*/
 import recordList from 'views/record/list/list.vue';
-
-
-
 import error from 'views/error/error.vue';
+
+import print from 'views/test/print1.vue';
 const routes=[
+    {
+        path:"/print",
+        component:print,
+        name:"登录",
+        meta:{
+            navText:"",
+        },
+    },
     {
         path:"/login",
         component:login,
