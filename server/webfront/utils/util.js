@@ -14,7 +14,7 @@ module.exports={
                 template:`src/views/${fileName}/${fileName}.html`,
                 // filename:`./templates/${fileName}.ftl`,
                 filename:process.env.NODE_ENV !== 'development'?
-                    `./templates/${fileName}.ftl`:`${fileName}.html`,
+                    `./${fileName}.html`:`${fileName}.html`,
             };
         });
 
@@ -28,9 +28,11 @@ module.exports={
             prefixUrl="/"
         }else{
             if(process.env.VUE_APP_ISTEST==1){//测试环境
-                prefixUrl="//static.test.o-home.com/monitor/";
+                // prefixUrl="//static.test.o-home.com/monitor/";
+                prefixUrl="/";
             }else{//生产环境
-                prefixUrl="//static.o-home.com/monitor/";
+                // prefixUrl="//static.o-home.com/monitor/";
+                prefixUrl="/";
             }
         }
         return prefixUrl;

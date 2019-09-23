@@ -16,7 +16,7 @@ function resolve(dir){
 module.exports={
     lintOnSave:false,
     publicPath:util.getPublicPath(),
-    outputDir:publicUrlPrefix,
+    outputDir:'./dist',
     // assetsDir:"./public",//静态资源目录(相对于outputDir)
     assetsDir:"./",//静态资源目录(相对于outputDir)
     // pages:util.getPages(),
@@ -26,7 +26,7 @@ module.exports={
             entry: 'src/main.js',
             template: 'index.html',
             filename:process.env.NODE_ENV !== 'development'?
-                `./templates/admin.ftl`:`admin.html`,
+                `admin.html`:`admin.html`,
             chunks: ['chunk-vendors', 'chunk-common', 'admin']
         }
     },

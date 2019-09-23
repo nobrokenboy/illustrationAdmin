@@ -32,6 +32,18 @@
           <h4>{{item.value}}</h4>
       </div>
     </div>
+
+    
+    <div class="contact">
+        <span>联系我们</span>
+        <i class="el-icon-arrow-down"></i>
+    </div>
+
+
+    <div class="contact2">
+        <span>联系我们</span>
+        <i class="el-icon-phone-outline animated infinite tada"></i>
+    </div>
 </div>
 
 
@@ -223,4 +235,63 @@ export default {
       // opacity 0
      100%
       // opacity 1
+
+
+  .contact
+    box-sizing content-box
+    position fixed
+    right 10px
+    top 20%
+    // transform translateY(-50%)
+    width 16px
+    padding 10px 8px
+    background #ccc
+    font-size 16px
+    word-wrap break-word
+    line-height 1.5
+    span 
+      color #fff
+    i 
+      display inline-block
+      // padding-top 5px
+      will-change transform
+      animation slide 1.5s ease infinite
+      color #fff 
+      font-weight bold
+
+  .contact2
+    box-sizing content-box
+    position fixed
+    right 10px
+    top 50%
+    transform translateY(-50%)
+    width 16px
+    padding 10px 8px
+    background #ccc
+    font-size 16px
+    word-wrap break-word
+    line-height 1.5
+    span 
+      color #fff
+    i 
+      display inline-block
+      padding-top 5px
+      will-change transform
+      // animation shake 1.5s ease infinite
+      // transform-origin center
+      color #fff 
+      font-weight bold
+
+
+  @keyframes slide 
+    0%
+      transform:translateY(0)
+    100%
+      transform:translateY(-8px)
+
+   @keyframes shake 
+    0%
+      transform:rotate(0deg)
+    100%
+      transform:rotate(-135deg)
 </style>
