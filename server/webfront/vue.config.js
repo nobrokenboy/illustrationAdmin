@@ -16,7 +16,7 @@ function resolve(dir){
 module.exports={
     lintOnSave:false,
     publicPath:util.getPublicPath(),
-    outputDir:'./dist',
+    outputDir:'../../dist',
     // assetsDir:"./public",//静态资源目录(相对于outputDir)
     assetsDir:"./",//静态资源目录(相对于outputDir)
     // pages:util.getPages(),
